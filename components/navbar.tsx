@@ -8,6 +8,7 @@ import { ModeToggle } from "@/components/mode-toggle"
 import { Menu, X } from "lucide-react"
 import { useState, useEffect } from "react"
 import { motion } from "framer-motion"
+import Image from "next/image"
 
 const navItems = [
   { name: "Home", href: "/" },
@@ -42,9 +43,10 @@ export function Navbar() {
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
-          className="flex items-center gap-2"
+          className="flex items-center gap-2 md:py-4"
         >
-          <Link href="/" className="font-bold text-xl">
+          <Link href="/" className="font-bold text-xl flex items-center">
+            <Image src="/logo.png" alt="Logo" width={100} height={100}  />
             <span className="gradient-heading">Portfolio</span>
           </Link>
         </motion.div>

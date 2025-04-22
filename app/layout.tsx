@@ -11,7 +11,10 @@ const inter = Inter({ subsets: ["latin"] })
 export const metadata: Metadata = {
   title: "My Portfolio",
   description: "A showcase of my projects and skills",
-    generator: 'v0.dev'
+    generator: 'hungdran8032',
+  icons: {
+    icon: "/icon.png",
+  },
 }
 
 export default function RootLayout({
