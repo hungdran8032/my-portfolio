@@ -17,7 +17,7 @@ export function Footer() {
           <div className="flex flex-col items-center md:items-end gap-4">
             <div className="flex items-center gap-4">
               <Link
-                href="https://github.com"
+                href="https://github.com/hungdran8032"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-muted-foreground hover:text-foreground transition-colors p-2 rounded-full hover:bg-primary/10"
@@ -26,7 +26,7 @@ export function Footer() {
                 <span className="sr-only">GitHub</span>
               </Link>
               <Link
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/in/nguyen-hung-23135b358/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-muted-foreground hover:text-foreground transition-colors p-2 rounded-full hover:bg-primary/10"
@@ -35,7 +35,7 @@ export function Footer() {
                 <span className="sr-only">LinkedIn</span>
               </Link>
               <Link
-                href="mailto:example@example.com"
+                href="mailto:nguyenhung20032308@gmail.com"
                 className="text-muted-foreground hover:text-foreground transition-colors p-2 rounded-full hover:bg-primary/10"
               >
                 <Mail className="h-5 w-5" />

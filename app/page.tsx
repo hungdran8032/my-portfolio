@@ -7,8 +7,31 @@ import { ProjectCard } from "@/components/project-card"
 import { projects } from "@/lib/projects"
 import { FadeIn, SlideIn, StaggerChildren, StaggerItem } from "@/components/animations"
 import { motion } from "framer-motion"
-import { ArrowRight, Code, Layers, Zap } from "lucide-react"
+import { ArrowRight, Code, Download, Github, Layers, Linkedin, Mail, Zap } from "lucide-react"
 import { useEffect, useState } from "react"
+import { Card, CardContent } from "@/components/ui/card"
+import { Badge } from "@/components/ui/badge"
+
+// Add keyframes for floating animation
+const floatKeyframes = `
+@keyframes float {
+  0% {
+    transform: translateY(0) translateX(0);
+  }
+  25% {
+    transform: translateY(-10px) translateX(10px);
+  }
+  50% {
+    transform: translateY(0) translateX(20px);
+  }
+  75% {
+    transform: translateY(10px) translateX(10px);
+  }
+  100% {
+    transform: translateY(0) translateX(0);
+  }
+}
+`
 
 // Typewriter effect component
 function TypewriterEffect({ text }: { text: string }) {
@@ -40,61 +63,204 @@ function TypewriterEffect({ text }: { text: string }) {
 export default function Home() {
   return (
     <div>
+      <style jsx global>{`
+        ${floatKeyframes}
+      `}</style>
       {/* Hero Section */}
-      <section className="py-20 md:py-32 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-radial from-primary/5 to-transparent" />
+      <section className="py-20 md:py-20 relative overflow-hidden">
+        {/* Animated background elements */}
+        <div className="absolute inset-0 bg-gradient-radial from-primary/10 to-transparent" />
+        <div className="absolute w-full h-full">
+          <div className="absolute top-20 left-10 w-72 h-72 bg-primary/5 rounded-full filter blur-3xl animate-pulse" />
+          <div
+            className="absolute bottom-20 right-10 w-72 h-72 bg-purple-500/5 rounded-full filter blur-3xl animate-pulse"
+            style={{ animationDelay: "1s" }}
+          />
+        </div>
+
+        {/* Floating particles */}
+        <div className="absolute inset-0 overflow-hidden">
+          {Array.from({ length: 20 }).map((_, i) => (
+            <div
+              key={i}
+              className="absolute w-2 h-2 rounded-full bg-primary/20"
+              style={{
+                top: `${Math.random() * 100}%`,
+                left: `${Math.random() * 100}%`,
+                animation: `float ${5 + Math.random() * 10}s linear infinite`,
+                animationDelay: `${Math.random() * 5}s`,
+                opacity: 0.4 + Math.random() * 0.6,
+              }}
+            />
+          ))}
+        </div>
+
         <div className="container px-4 md:px-6 relative">
           <div className="flex flex-col items-center text-center space-y-8">
-            <FadeIn>
-              <div className="inline-flex items-center px-3 py-1 rounded-full border border-border/40 bg-background/50 backdrop-blur-sm mb-4">
-                <span className="text-xs font-medium text-muted-foreground">Welcome to my portfolio</span>
-              </div>
-            </FadeIn>
-            <SlideIn>
-              <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl max-w-3xl gradient-heading">
-                <TypewriterEffect text="Crafting Digital Experiences with Passion" />
-              </h1>
-            </SlideIn>
-            <FadeIn delay={0.2}>
-              <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl">
-                I'm a developer passionate about creating beautiful and functional web applications that solve
-                real-world problems.
-              </p>
-            </FadeIn>
-            <FadeIn delay={0.3}>
-              <div className="flex flex-col sm:flex-row gap-3">
-                <Button asChild size="lg" className="rounded-full px-8">
-                  <Link href="/projects">View Projects</Link>
-                </Button>
-                <Button variant="outline" asChild size="lg" className="rounded-full px-8">
-                  <Link href="/contact">Contact Me</Link>
-                </Button>
-              </div>
-            </FadeIn>
 
             <motion.div
-              initial={{ opacity: 0, y: 100 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.5 }}
-              className="w-full max-w-3xl mx-auto mt-8"
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.7, delay: 0.2 }}
             >
-              <div className="relative w-full aspect-video rounded-xl overflow-hidden p-[1px] bg-background">
-                <div className="absolute inset-0 -z-10 bg-gradient-to-r from-primary via-purple-400 to-primary animate-gradient-x"></div>
-                <Image
-                  src="/placeholder.svg?height=600&width=1200"
-                  alt="Hero Image"
-                  fill
-                  className="object-cover rounded-xl"
-                  priority
-                />
-              </div>
+              <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-6xl max-w-3xl">
+                <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary to-purple-500">
+                  <TypewriterEffect text="Hello, I'm Hung" />
+                </span>
+              </h1>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.4 }}
+              className="w-full max-w-5xl"
+            >
+              <Card className="overflow-hidden border-none shadow-xl bg-background/70 backdrop-blur-md">
+                <CardContent className="p-0">
+                  <div className="grid md:grid-cols-[1fr_2fr] overflow-hidden">
+                    {/* Profile Image Column with gradient overlay */}
+                    <div className="relative h-full min-h-[300px] overflow-hidden">
+                      <div className="absolute inset-0 bg-gradient-to-br from-primary to-blue-950 opacity-90" />
+                      <div className="absolute inset-0 bg-[url('/placeholder.svg?height=600&width=400')] bg-cover bg-center mix-blend-overlay" />
+
+                      <div className="absolute inset-0 flex items-center justify-center p-6">
+                        <div className="relative w-48 h-48 rounded-full overflow-hidden border-4 border-white/90 shadow-2xl z-10 transition-all duration-300 hover:scale-105">
+                          <Image
+                            src="/placeholder.svg?height=200&width=200"
+                            alt="Profile"
+                            fill
+                            className="object-cover"
+                          />
+                        </div>
+                      </div>
+
+                      {/* Decorative elements */}
+                      <div className="absolute bottom-4 left-4 right-4 flex justify-between">
+                        <div className="w-12 h-12 rounded-full bg-white/10 backdrop-blur-sm" />
+                        <div className="w-8 h-8 rounded-full bg-white/10 backdrop-blur-sm" />
+                      </div>
+                    </div>
+
+                    {/* Profile Info Column */}
+                    <div className="p-8 md:p-10 flex flex-col justify-center relative">
+                      {/* Decorative corner accent */}
+                      <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-bl-full" />
+
+                       <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 relative">
+                        <div className="w-full text-center md:text-left">
+                          <h2 className="text-3xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-purple-500">
+                            Nguyen Minh Hung
+                          </h2>
+                          <p className="text-lg text-muted-foreground mt-1">Backend Developer</p>
+                        </div>
+
+                        <div className="flex gap-3 mt-4 md:mt-0 ">
+                          <Button
+                            variant="outline"
+                            size="icon"
+                            className="rounded-full border-primary/20 hover:border-primary hover:bg-primary/10 transition-all duration-300"
+                            asChild
+                          >
+                            <Link href="https://github.com" target="_blank" rel="noopener noreferrer">
+                              <Github className="h-4 w-4" />
+                              <span className="sr-only">GitHub</span>
+                            </Link>
+                          </Button>
+                          <Button
+                            variant="outline"
+                            size="icon"
+                            className="rounded-full border-primary/20 hover:border-primary hover:bg-primary/10 transition-all duration-300"
+                            asChild
+                          >
+                            <Link href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+                              <Linkedin className="h-4 w-4" />
+                              <span className="sr-only">LinkedIn</span>
+                            </Link>
+                          </Button>
+                          <Button
+                            variant="outline"
+                            size="icon"
+                            className="rounded-full border-primary/20 hover:border-primary hover:bg-primary/10 transition-all duration-300"
+                            asChild
+                          >
+                            <Link href="mailto:example@example.com">
+                              <Mail className="h-4 w-4" />
+                              <span className="sr-only">Email</span>
+                            </Link>
+                          </Button>
+                        </div>
+                      </div>
+
+                      <div className="relative">
+                        <p className="text-muted-foreground mb-6 leading-relaxed"style={{ textAlign: 'justify' }}>
+                          I'm a passionate full-stack developer with 5+ years of experience building web applications.
+                          Specialized in <span className="text-primary font-medium">React</span>,{" "}
+                          <span className="text-primary font-medium">Next.js</span>, and{" "}
+                          <span className="text-primary font-medium">TypeScript</span> with a strong focus on creating
+                          responsive, accessible, and performant user interfaces. I enjoy solving complex problems and
+                          turning ideas into reality.
+                        </p>
+
+                        <div className="flex flex-wrap gap-2 mb-8">
+                          {["React", "Next.js", "TypeScript", "Node.js", "Tailwind CSS", "UI/UX Design"].map(
+                            (skill) => (
+                              <Badge
+                                key={skill}
+                                variant="secondary"
+                                className="bg-primary/5 hover:bg-primary/10 text-primary border-primary/20 transition-all duration-300 hover:scale-105"
+                              >
+                                {skill}
+                              </Badge>
+                            ),
+                          )}
+                        </div>
+
+                        <div className="flex flex-col sm:flex-row gap-3">
+                          <Button
+                            variant="default"
+                            className="group relative overflow-hidden bg-gradient-to-r from-primary to-purple-600 hover:from-primary/90 hover:to-purple-500/90 transition-all duration-300"
+                            asChild
+                          >
+                            <Link href="/about">
+                              <span className="relative z-10">View Full Profile</span>
+                              <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1 relative z-10" />
+                              <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300" />
+                            </Link>
+                          </Button>
+                          <Button
+                            variant="outline"
+                            className="group border-primary/20 hover:border-primary hover:bg-primary/5 transition-all duration-300"
+                            asChild
+                          >
+                            <Link href="/projects">
+                              <span>View Projects</span>
+                              <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                            </Link>
+                          </Button>
+                          <Button
+                            variant="outline"
+                            className="group border-primary/20 hover:border-primary hover:bg-primary/5 transition-all duration-300"
+                            asChild
+                          >
+                            <Link href="#" download>
+                              <Download className="mr-2 h-4 w-4" />
+                              <span>Download Resume</span>
+                            </Link>
+                          </Button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
             </motion.div>
           </div>
         </div>
       </section>
 
       {/* Services Section */}
-      <section className="py-20 bg-muted/30">
+      <section className="py-20">
         <div className="container px-4 md:px-6">
           <FadeIn>
             <div className="text-center mb-12">
@@ -146,7 +312,7 @@ export default function Home() {
       </section>
 
       {/* Featured Projects Section */}
-      <section className="py-20">
+      <section className="py-20 bg-muted/30">
         <div className="container px-4 md:px-6">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 mb-12">
             <FadeIn>
@@ -174,7 +340,7 @@ export default function Home() {
       </section>
 
       {/* Skills Section */}
-      <section className="py-20 bg-muted/30">
+      <section className="py-20">
         <div className="container px-4 md:px-6">
           <FadeIn>
             <div className="text-center mb-12">
@@ -218,7 +384,7 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20">
+      <section className="py-20 bg-muted/30">
         <div className="container px-4 md:px-6">
           <FadeIn>
             <div className="rounded-2xl relative p-[1px] overflow-hidden">
