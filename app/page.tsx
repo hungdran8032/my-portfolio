@@ -105,7 +105,7 @@ export default function Home() {
             >
               <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-6xl max-w-3xl">
                 <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary to-purple-500">
-                  <TypewriterEffect text="Hello, I'm Hung" />
+                  <TypewriterEffect text="Welcome to my portfolio!" />
                 </span>
               </h1>
             </motion.div>
@@ -162,7 +162,7 @@ export default function Home() {
                             className="rounded-full border-primary/20 hover:border-primary hover:bg-primary/10 transition-all duration-300"
                             asChild
                           >
-                            <Link href="https://github.com" target="_blank" rel="noopener noreferrer">
+                            <Link href="https://github.com/hungdran8032" target="_blank" rel="noopener noreferrer">
                               <Github className="h-4 w-4" />
                               <span className="sr-only">GitHub</span>
                             </Link>
@@ -173,7 +173,7 @@ export default function Home() {
                             className="rounded-full border-primary/20 hover:border-primary hover:bg-primary/10 transition-all duration-300"
                             asChild
                           >
-                            <Link href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+                            <Link href="https://www.linkedin.com/in/nguyen-hung-23135b358/" target="_blank" rel="noopener noreferrer">
                               <Linkedin className="h-4 w-4" />
                               <span className="sr-only">LinkedIn</span>
                             </Link>
@@ -184,7 +184,7 @@ export default function Home() {
                             className="rounded-full border-primary/20 hover:border-primary hover:bg-primary/10 transition-all duration-300"
                             asChild
                           >
-                            <Link href="mailto:example@example.com">
+                            <Link href="mailto:nguyenhung20032308@gmail.com">
                               <Mail className="h-4 w-4" />
                               <span className="sr-only">Email</span>
                             </Link>
@@ -194,21 +194,16 @@ export default function Home() {
 
                       <div className="relative">
                         <p className="text-muted-foreground mb-6 leading-relaxed"style={{ textAlign: 'justify' }}>
-                          I'm a passionate full-stack developer with 5+ years of experience building web applications.
-                          Specialized in <span className="text-primary font-medium">React</span>,{" "}
-                          <span className="text-primary font-medium">Next.js</span>, and{" "}
-                          <span className="text-primary font-medium">TypeScript</span> with a strong focus on creating
-                          responsive, accessible, and performant user interfaces. I enjoy solving complex problems and
-                          turning ideas into reality.
+                        I'm a backend developer passionate about building secure, scalable web applications using Node.js, Spring Boot, Laravel, MySQL, and MongoDB. I focus on system architecture, performance optimization, and application security. I also explore frontend to better understand the full user experience.
                         </p>
 
                         <div className="flex flex-wrap gap-2 mb-8">
-                          {["React", "Next.js", "TypeScript", "Node.js", "Tailwind CSS", "UI/UX Design"].map(
+                          {["Java", "Flutter", "React", "Next.js", "TypeScript", "JavaScript", "Node.js"].map(
                             (skill) => (
                               <Badge
                                 key={skill}
                                 variant="secondary"
-                                className="bg-primary/5 hover:bg-primary/10 text-primary border-primary/20 transition-all duration-300 hover:scale-105"
+                                className="bg-primary/5 hover:bg-primary/10 text-white border-primary/20 transition-all duration-300 hover:scale-105"
                               >
                                 {skill}
                               </Badge>
@@ -266,7 +261,7 @@ export default function Home() {
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold tracking-tighter md:text-4xl gradient-heading">What I Do</h2>
               <p className="mx-auto max-w-[700px] text-muted-foreground md:text-lg mt-4">
-                Specialized services to bring your digital ideas to life
+                Building powerful backend systems with attention to security, scalability, and performance
               </p>
             </div>
           </FadeIn>
@@ -277,9 +272,9 @@ export default function Home() {
                 <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center mb-6">
                   <Code className="h-6 w-6 text-primary" />
                 </div>
-                <h3 className="text-xl font-bold mb-2">Web Development</h3>
+                <h3 className="text-xl font-bold mb-2">Backend Development</h3>
                 <p className="text-muted-foreground">
-                  Creating responsive, fast, and user-friendly websites and web applications using modern technologies.
+                  Building secure, scalable, and maintainable backend systems using Node.js, Spring Boot, and Laravel.
                 </p>
               </div>
             </SlideIn>
@@ -287,11 +282,11 @@ export default function Home() {
             <SlideIn direction="up" delay={0.2}>
               <div className="bg-card rounded-xl p-6 hover-card glass-card">
                 <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center mb-6">
-                  <Layers className="h-6 w-6 text-primary" />
+                  <Zap className="h-6 w-6 text-primary" />
                 </div>
-                <h3 className="text-xl font-bold mb-2">UI/UX Design</h3>
+                <h3 className="text-xl font-bold mb-2">System Optimization</h3>
                 <p className="text-muted-foreground">
-                  Designing intuitive and beautiful user interfaces that provide exceptional user experiences.
+                  Enhancing application performance, scalability, and resource efficiency for smooth and fast user experiences.
                 </p>
               </div>
             </SlideIn>
@@ -299,11 +294,11 @@ export default function Home() {
             <SlideIn direction="up" delay={0.3}>
               <div className="bg-card rounded-xl p-6 hover-card glass-card">
                 <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center mb-6">
-                  <Zap className="h-6 w-6 text-primary" />
+                  <Layers className="h-6 w-6 text-primary" />
                 </div>
-                <h3 className="text-xl font-bold mb-2">Performance Optimization</h3>
+                <h3 className="text-xl font-bold mb-2">API & Integration</h3>
                 <p className="text-muted-foreground">
-                  Improving website speed and performance for better user experience and SEO rankings.
+                  Designing and integrating robust APIs that connect frontend, databases, and third-party services seamlessly.
                 </p>
               </div>
             </SlideIn>

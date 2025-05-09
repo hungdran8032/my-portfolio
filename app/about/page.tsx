@@ -134,7 +134,7 @@ export default function AboutPage() {
                 "Java",
                 "Spring Boot",
                 "Spring Security",
-                "Fluuter",
+                "Flutter",
                 "PHP",
                 "Laravel",
                 "React",
